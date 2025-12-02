@@ -1,0 +1,3 @@
+function onTap(){
+    alert("Tapped!");
+}

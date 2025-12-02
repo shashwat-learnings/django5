@@ -1,0 +1,40 @@
+{% extends 'course/base.html' %}
+
+{% block title %}Course Home {% endblock title %}
+
+{% block header %}Extends Inheriated home  page{% endblock header %}
+
+
+
+{% block footer %}{{  block.super }} Extends Inheriated home page footer{% endblock footer %}
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Course Home{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>{% block header %}Home Page{% endblock %}</h1>
+    </header>
+
+    <main>
+        {% block content %}
+        <p>Welcome to the Home page of course app.</p>
+        {% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}<p>&copy; {% now "Y" %}</p>{% endblock %}
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html> {% endcomment %}

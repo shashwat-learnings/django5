@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% block title %}Django Page{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'course/css/style.css' %}">
+</head>
+<body>
+    {% block content %}
+    <main>
+        {% comment %} to use filter on key use "pipe(|) symbol" and to 
+        give argument on filter on value use "colon(:) symbol"
+        we can also chain multiple filters together
+        using pipe(|) symbol between them
+        {% endcomment %}
+        <h1>Hello, {{cname | upper}}!</h1>
+        
+        <p>Replace this with your template content.</p>
+        <h3>Desc : {{description|truncatewords:4}}</h3>
+{% comment %} if tag  {% endcomment %}
+        {%if booleanValue and otherCondition%}
+        <h3>Duration : duration</h3>
+        {%endif%}
+
+        {%if booleanValue and otherCondition%}
+        <h3>Duration : duration</h3>
+        {%elif test%}
+        <h3>Duration : duration</h3>
+        {%else%}
+        <h3>Duration : duration</h3>
+        {%endif%}
+        <h2>For loop:</h2>
+        {% for ele in  name %}
+        <li>{{forloop.counter}}. {{ele}}</li>
+        {%empty%}
+        {% comment %}  works when list is empty {% endcomment %}
+        <li>No data available</li> 
+        {% endfor %}
+        {% comment %} if json is inside json then we access by using "." .e.g. student.john {% endcomment %}
+        {% comment %} <h1></h1> {% endcomment %}
+        <button onclick="onTap()">Tap Me</button>
+    </main>
+    {% endblock %}
+
+    {% block scripts %}
+    <script src="{% static 'course/js/scripts.js' %}"></script>
+    {% endblock %} 
+</body>
+</html>
