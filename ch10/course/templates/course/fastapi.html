@@ -11,7 +11,46 @@
     <main>
         <h1>Hello, Fast Api !</h1>
         <p>Replace this with your template content.</p>
-        <form action="">{{form}}</form>
+        {% comment %} <form action="">{{form}}</form> {% endcomment %}
+
+        {% comment %} form input by input {% endcomment %}
+        {% comment %} <form action="">FirstName:{{form.first_name}}</form> {% endcomment %}
+
+                {% comment %} form label & input by label & input {% endcomment %}
+        {% comment %} <form action="">
+            {{form.first_name.label_tag}}{{form.first_name}} <br/>
+            <label for ="{{form.first_name.id_for_label}}">{{form.first_name.label}}</label> {{form.first_name}}<br/>
+        </form>
+        <br/> {% endcomment %}
+
+        {% comment %} In loop {% endcomment %}
+        {% comment %} <form action="">
+            {% for field in form%}
+            {{field.label_tag}}
+            {{field}}
+            {% endfor %}
+        </form>
+        <br/> {% endcomment %}
+        {% comment %} <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="submit">
+        </form> {% endcomment %}
+
+
+        {% comment %} In ths method we have to handle error ourselves {% endcomment %}
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {{form.non_field_errors}}  {% comment %} error which are not related to field {% endcomment %}
+            {% for field in form%}
+            <div>
+            {{field.label_tag}} {{field}} {{field.errors}} <br/> 
+            </div>
+            <br/>
+            {% endfor %}
+            <input type="submit" value="submit">
+        </form>
+        
     </main>
     {% endblock %}
 </body>
