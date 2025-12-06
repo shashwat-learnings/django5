@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Django QR{% endblock %}</title>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+             <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'generate_qr' %}">Generate QR</a></li>
+                <li><a href="{% url 'scan_qr' %}">Scan QR</a></li>
+            </ul> 
+            <!-- Navigation content here -->
+        </nav>
+    </header>
+    <h1>Qr Code screen<h1/>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <!-- Footer content here -->
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
