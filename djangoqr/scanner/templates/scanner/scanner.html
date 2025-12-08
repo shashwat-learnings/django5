@@ -1,7 +1,9 @@
  {% extends "core/base.html" %}
+ {% load customfilter %}
 {% block title %}Scan QR{% endblock title %} 
 
 {% block content %}
+{% comment %} <h2>{{testing|addPrefix:'heloob '}}</h2>  custom filter {% endcomment %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
