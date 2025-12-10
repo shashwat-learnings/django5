@@ -48,3 +48,4 @@ from course.models import Profile
 #             'email':{'required':'Email is required'}
 #         }
 #         widgets={'password':forms.PasswordInput(attrs={'class':'pwdclass'})}
+#
