@@ -2,16 +2,16 @@ from django import forms
 from django.core import validators
 from course.models import Profile
 # custom validator
-# def start_with_s(value):
-#     if value[0] != 's':
-#         raise forms.ValidationError('Email should start from s')
+def start_with_s(value):
+    if value[0] != 's':
+        raise forms.ValidationError('Email should start from s')
 
-# class Registration(forms.Form):
-#     first_name  = forms.CharField(max_length=70,validators=[validators.MaxLengthValidator(limit_value=64)],error_messages={'required':'Name is required'})
-#     email = forms.EmailField(max_length=255,validators=[start_with_s ])
-#     city = forms.CharField(max_length=70)
-#     roll = forms.IntegerField()
-#     state = forms.CharField(max_length=70)
+class Registration(forms.Form):
+    first_name  = forms.CharField(max_length=70,validators=[validators.MaxLengthValidator(limit_value=64)],error_messages={'required':'Name is required'})
+    email = forms.EmailField(max_length=255,validators=[start_with_s ])
+    city = forms.CharField(max_length=70)
+    roll = forms.IntegerField()
+    state = forms.CharField(max_length=70)
 
 #     # field by field validation
 #     # def clean_first_name(self):

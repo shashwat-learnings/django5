@@ -41,6 +41,15 @@
         {% comment %} if json is inside json then we access by using "." .e.g. student.john {% endcomment %}
         {% comment %} <h1></h1> {% endcomment %}
         <button onclick="onTap()">Tap Me</button>
+
+        <h2>Student List:</h2>
+        {% for message in messages %}
+            <ul>
+                <span class ="{{message.tags}}">{{ message }}</span>
+            </ul>
+        {% empty %}
+            <p>No message available</p>
+        {% endfor %}
     </main>
     {% endblock %}
 
