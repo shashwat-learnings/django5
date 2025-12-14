@@ -11,7 +11,7 @@
             <form method="get" action=".">
                 <div class="input-group">
                     <select class="form-select" name="genre" id="genre-filter" onchange="this.form.submit()">
-                        <option value="">All Genres</option>
+                        <option value="">All Genress</option>
                         {% for code, name in genres %} 
                         <option value="{{ code }}" {% if request.GET.genre == code %}selected{% endif %}>{{ name }}</option>
                         {% endfor %}
