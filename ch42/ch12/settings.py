@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'core',
+    'product',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +124,7 @@ AUTH_USER_MODEL = 'account.User'
 
 SITE_DOMAIN = 'http://127.0.0.1:8000/'
 SITE_NAME = "Auth System"
+
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
+ 

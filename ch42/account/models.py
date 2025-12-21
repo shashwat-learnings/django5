@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
+from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 
 class UserManager(BaseUserManager):
     def create_user(self,email,password=None):
@@ -32,7 +32,7 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser,PermissionsMixin):
     email= models.EmailField(max_length=255,unique=True)
     name=models.CharField(max_length=255)
     city=models.CharField(max_length=255)
@@ -55,11 +55,18 @@ class User(AbstractBaseUser):
     def has_perm(self,perm,obj=None):
         "Does the user have a specific permission?"
         # only superuser have permission to access all data
-        return self.is_superuser
+        # return self.is_superuser
+        if self.is_superuser:
+            return True
+        return super().has_perm(perm,obj)
     
     def has_module_perms(self,app_label):
         "Does the user have permissions to view the app `app_label`?"
-        return self.is_superuser   
+        # return self.is_superuser 
+        # 
+        if self.is_superuser:
+            return True
+        return super().has_module_perms(app_label)  
 
 
 

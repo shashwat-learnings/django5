@@ -7,7 +7,8 @@ from django.urls import reverse
 from .models import User
 from .utils import send_activation_email
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
+from core.decorators import login_and_role_required
 
 def send_activation_email_to_user(user:User):
     uid64 = urlsafe_base64_encode(force_bytes(user.pk))
@@ -16,6 +17,8 @@ def send_activation_email_to_user(user:User):
     activation_url = f'{settings.SITE_DOMAIN}{activation_link}'
     send_activation_email(user.email,activation_url)
 
+# @login_required
+# @login_and_role_required("customer")
 def activate_account(request,uid64,token):
     try:
         uid = force_str(urlsafe_base64_decode(uid64))
