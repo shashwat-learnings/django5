@@ -5,7 +5,6 @@ PERMISSION_CONFIG = {
         Product:["view"]
     },
     'seller':{
-        Product:["view","add","changes"
-                 ]
+        Product:["view","add","changes" ]
     }
 }
