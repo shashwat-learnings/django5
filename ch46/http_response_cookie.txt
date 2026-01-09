@@ -1,0 +1,11 @@
+HttpResponse.set_cookie(
+    key,
+    value='',
+    max_age=None, // max_age = 60*60*24*2
+    expires=None // expires = datetime.utcnow()+timedelta(days=2)
+    path='/' // path='/home'
+    domain=None, // domain='geekyshows.com' (if you want cookie to work cross domain)
+    secure=False, // if you want that cookie should only work for "https"
+    httponly=False, // if you want that nobody on frontend can access it with javascript
+    samesite=None // if you want that browser  should not send cookie for cross origin
+)

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Cookie</title>
+</head>
+<body>
+    <h1>Cookie Information</h1>
+    {% if cookie %}
+        <p>The value of the cookie is: <strong>{{ cookie }}</strong></p>
+    {% else %}
+        <p>No cookie found.</p>
+    {% endif %}
+
+
+</body>
+</html>
