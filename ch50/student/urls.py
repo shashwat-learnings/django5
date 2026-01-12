@@ -6,4 +6,5 @@ urlpatterns = [
     path('course/', views.course, name='course'),
     path('result/', cache_page(timeout=60)(views.results), name='result'),
     path('', views.home, name='home'),
+    
 ]
