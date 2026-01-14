@@ -1,0 +1,32 @@
+from django.core.cache import cache
+
+cache.set(key, value, timeout=DEFAULT_TIMEOUT, version = None)
+
+cache.get(key, default=None, version=None)
+
+cache.add(key,value, timeout=DEFAULT_TIMEOUT, version=None)  // this will only add key in cache if the key isn't already available in cacher
+
+cache.get_or_set(key, default, timeout=DEFAULT_TIMEOUT)
+
+cache.set_many(dict,timeout)
+
+cache.get_many(key,version=None)
+
+cache.delete(key, version=None)
+
+cache.delete_many(keys, version=None)
+
+cache.clear()
+
+cache.touch(key, timeout=DEFAULT_TIMEOUT, version=None) // to change the expiration time
+
+cache.incr(key, delta=1, version=None)
+
+cache.decr(key, delta=1, version=None)
+
+cache.close() // to close cache connection
+
+
+
+
+
