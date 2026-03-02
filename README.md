@@ -2,9 +2,15 @@
 
 ## 1. Activate Virtual Environment
 
+fow windows
 ```
 python -m venv venv
 venv\Scripts\activate
+```
+for mac and linux
+```
+python3.14 -m venv venv 
+source venv/bin/activate    
 ```
 *Creates and activates a virtual environment named `venv`.*
 
